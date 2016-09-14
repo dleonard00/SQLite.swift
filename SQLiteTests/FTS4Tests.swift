@@ -184,7 +184,7 @@ class FTS4IntegrationTests : SQLiteTestCase {
 
         let locale = CFLocaleCopyCurrent()
         let tokenizerName = "tokenizer"
-        let tokenizer = CFStringTokenizerCreate(nil, "", CFRangeMake(0, 0), UInt(kCFStringTokenizerUnitWord), locale)
+        let tokenizer = CFStringTokenizerCreate(nil, "" as CFString!, CFRangeMake(0, 0), UInt(kCFStringTokenizerUnitWord), locale)
         try! db.registerTokenizer(tokenizerName) { string in
             CFStringTokenizerSetString(tokenizer, string, CFRangeMake(0, CFStringGetLength(string)))
             if CFStringTokenizerAdvanceToNextToken(tokenizer) == .None {
